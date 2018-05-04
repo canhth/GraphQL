@@ -1,0 +1,9 @@
+
+# Update balance by User
+
+mutation UpdateBalance($id: Int!, $balance: Int!) {
+    updateUser(id: $id, balance: $balance) {
+        name
+        balance
+    }
+}

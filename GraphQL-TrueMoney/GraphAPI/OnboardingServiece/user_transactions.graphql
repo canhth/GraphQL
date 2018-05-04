@@ -1,0 +1,44 @@
+
+# Get user information and transaction as well
+query UsersAndTransactions($id: Int!) {
+    user(id: $id) {
+        id
+        name
+        balance
+        transactions {
+            amount
+        }
+    }
+}
+
+# Get transaction by id
+query Transactions($id: Int!) {
+    transaction(id: $id) {
+            id
+            status
+            amount
+        user {
+            name
+        }
+    }
+}
+
+
+fragment TransactionDetails on Transaction {
+    user {
+        name
+    }
+    id
+    status
+    amount
+}
+
+query AllTransaction {
+    transactionsList {
+        ...TransactionDetails
+    }
+}
+
+
+
+
